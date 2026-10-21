@@ -22,6 +22,12 @@ spring:
         - id: JobService
           uri: lb://JOBSERVICE
           predicates:
-            - Path=/api/v1/user-service/**
+            - Path=/api/v1/job-service/**
+          filters:
+            - StripPrefix=2
+        - id: ConnectionService
+          uri: lb://CONNECTIONSERVICE
+          predicates:
+            - Path=/api/v1/connection-service/**
           filters:
             - StripPrefix=2
